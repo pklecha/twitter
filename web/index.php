@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -10,8 +13,10 @@ and open the template in the editor.
         <title>Twitter</title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <?php if(isset($_SESSION['user'])) : ?>
+        <h2>Witaj <?php $_SESSION['user'] ?></h2>
+        <?php else: ?>
+        <a href="loginForm.php">Zaloguj</a> | <a href="registerForm.php">Zarejestruj</a>
+        <?php endif ?>
     </body>
 </html>

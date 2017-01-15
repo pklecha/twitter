@@ -60,7 +60,7 @@ class User {
         $this->password = $hash;
     }
     
-    public function save(mysqli $conn)
+    public function registerNewUser(mysqli $conn)
     {
         if (-1 === $this->id) {
            $sql = sprintf("INSERT INTO user (`email`,`username`,`password`) VALUES('%s','%s','%s')", $this->email, $this->username, $this->password);
@@ -79,12 +79,12 @@ class User {
     
     static public function loadUserByUsername(mysqli $conn, $username)
     {
-        $conn->real_escape_string($username);
-        $sql = "SELECT * FROM `user` WHERE id=$username";
+        $username = $conn->real_escape_string($username);
+        $sql = "SELECT * FROM user WHERE username=\"$username\"";
         $result = $conn->query($sql);
         
         if(!$result) {
-            die ("Query error: " . $conn->errno);
+            die ("Query error: " . $conn->errno . $conn->error);
         }
         
         if ($result->num_rows === 1) {

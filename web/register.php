@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user->setEmail($email);
         $user->setPassword($password);
         
-        $user->save($conn);
+        $user->registerNewUser($conn);
     }
 }
 
