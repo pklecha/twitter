@@ -10,12 +10,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = $_POST['password'];
         
         $user = new User();
-        
+
         $user->setUsername($username);
         $user->setEmail($email);
         $user->setPassword($password);
-        
-        $user->registerNewUser($conn);
+
+        $user->saveToDB($conn);
     }
 }
 

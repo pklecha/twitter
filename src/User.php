@@ -1,19 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of User
- *
- * @author pawel
- */
 class User {
-    //put your code here
-    
+
     private $id;
     private $username;
     private $email;
@@ -24,7 +12,7 @@ class User {
         $this->id = -1;
         $this->email = '';
         $this->username = '';
-        $this->password = '';
+        $this->setPassword = '';
     }
     
     function setId($id) {
@@ -55,12 +43,22 @@ class User {
     {
         return $this->id;
     }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
     
     public function setHash($hash) {
         $this->password = $hash;
     }
     
-    public function registerNewUser(mysqli $conn)
+    public function saveToDB(mysqli $conn)
     {
         if (-1 === $this->id) {
            $sql = sprintf("INSERT INTO user (`email`,`username`,`password`) VALUES('%s','%s','%s')", $this->email, $this->username, $this->password);
@@ -70,10 +68,18 @@ class User {
             if($result) {
                 $this->id = $conn->insert_id;
                 return true;
-            } else {
-                return false;
-    //            die ('Die Die Die!!!!' . $conn->errno);
-            } 
+            }
+            return false;
+        } else {
+            $sql = sprintf("UPDATE Users SET username='%s', email='%s', password='%s' WHERE id='%d'",
+                    $this->username, $this->email, $this->password, $this->id
+                );
+            $result = $conn->query($sql);
+
+            if ($result) {
+                return true;
+            }
+            return false;
         }
     }
     
@@ -84,7 +90,7 @@ class User {
         $result = $conn->query($sql);
         
         if(!$result) {
-            die ("Query error: " . $conn->errno . $conn->error);
+            die ("Query error: " . $conn->errno . ", " . $conn->error);
         }
         
         if ($result->num_rows === 1) {
@@ -101,5 +107,55 @@ class User {
             return false;
         }
     }
+
+    static public function loadUserById(mysqli $conn, $id)
+    {
+        $id = $conn->real_escape_string($id);
+        $sql = "SELECT * FROM user WHERE id=$id";
+        $result = $conn->query($sql);
+
+        if(!$result) {
+            die ("Querry error: " . $conn->connect_errno . ", " . $conn->error);
+        }
+
+        if ($result->num_rows === 1) {
+            $userArray = $result->fetch_assoc();
+            $user = new User();
+
+            $user->setID($userArray['id']);
+            $user->setEmail($userArray['email']);
+            $user->setUsername($userArray['username']);
+            $user->setHash($userArray['password']);
+
+            return $user;
+        } else {
+            return false;
+        }
+    }
     
+    static public function loalAllUsers(mysqli $conn)
+    {
+        $sql = "SELECT * FROM user";
+        $allUsers = [];
+
+        $result = $conn->query($sql);
+
+        if(!$result) {
+            die ("Querry error: " . $conn->connect_errno . ", " . $conn->error);
+        }
+
+        if ($result && $result->num_rows > 0) {
+            foreach ($result as $row) {
+                $user = new User();
+
+                $user->setId($row['id']);
+                $user->setEmail($row['email']);
+                $user->setUsername($row['username']);
+                $user->setPassword($row['password']);
+
+                $allUsers[] = $user;
+            }
+        }
+        return $allUsers;
+    }
 }
