@@ -23,8 +23,6 @@ if ('POST' === $_SERVER['REQUEST_METHOD']) {
         
     } else {
         echo "Bledny login lub haslo";
-        echo "<hr>";
-        var_dump($user->getPassword());
         exit;
     }
 }

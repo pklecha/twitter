@@ -61,7 +61,7 @@ class User {
     public function saveToDB(mysqli $conn)
     {
         if (-1 === $this->id) {
-           $sql = sprintf("INSERT INTO user (`email`,`username`,`password`) VALUES('%s','%s','%s')", $this->email, $this->username, $this->password);
+           $sql = sprintf("INSERT INTO twitter.user (`email`,`username`,`password`) VALUES('%s','%s','%s')", $this->email, $this->username, $this->password);
         
             $result = $conn->query($sql);
 
@@ -71,7 +71,7 @@ class User {
             }
             return false;
         } else {
-            $sql = sprintf("UPDATE Users SET username='%s', email='%s', password='%s' WHERE id='%d'",
+            $sql = sprintf("UPDATE twitter.user SET username='%s', email='%s', password='%s' WHERE id='%d'",
                     $this->username, $this->email, $this->password, $this->id
                 );
             $result = $conn->query($sql);
@@ -82,11 +82,25 @@ class User {
             return false;
         }
     }
+
+    public function delete(mysqli $conn)
+    {
+        if ($this->id != -1) {
+            $sql = "DELETE FROM twitter.user WHERE id=" . $this->id;
+            $result = $conn->query($sql);
+            if ($result == true) {
+                $this->id = -1;
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
     
     static public function loadUserByUsername(mysqli $conn, $username)
     {
         $username = $conn->real_escape_string($username);
-        $sql = "SELECT * FROM user WHERE username=\"$username\"";
+        $sql = "SELECT * FROM twitter.user WHERE username=\"$username\"";
         $result = $conn->query($sql);
         
         if(!$result) {
@@ -111,7 +125,7 @@ class User {
     static public function loadUserById(mysqli $conn, $id)
     {
         $id = $conn->real_escape_string($id);
-        $sql = "SELECT * FROM user WHERE id=$id";
+        $sql = "SELECT * FROM twitter.user WHERE id=$id";
         $result = $conn->query($sql);
 
         if(!$result) {
@@ -135,7 +149,7 @@ class User {
     
     static public function loalAllUsers(mysqli $conn)
     {
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM twitter.user";
         $allUsers = [];
 
         $result = $conn->query($sql);
@@ -145,7 +159,9 @@ class User {
         }
 
         if ($result && $result->num_rows > 0) {
-            foreach ($result as $row) {
+            $usersArray = $result->fetch_assoc();
+
+            foreach ($usersArray as $row) {
                 $user = new User();
 
                 $user->setId($row['id']);
