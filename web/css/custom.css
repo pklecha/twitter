@@ -1,0 +1,76 @@
+.light-blue-bckg {
+    background-color: #F3F6FB;
+    box-shadow: 0 4px 6px -6px #222;
+}
+
+.welcome-screen {
+    padding: 2em 3em;
+}
+
+a.top-nav {
+    color: #0275D8 !important;
+}
+
+.tweets-list {
+    margin-top: 6em;
+}
+
+.tweet {
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.tweet:hover {
+    background-color: #F3F6FB;
+}
+
+.tweet a {
+    color: #1d1e1f;
+}
+
+.tweet a:hover {
+    text-decoration: none;
+}
+
+.tweet p {
+    margin-bottom: 0.25em;
+}
+
+.tweet-details, .tweet-comments {
+    font-size: 0.85em;
+}
+
+.tweet-details {
+    width: 60%;
+    border-bottom: 1px solid #979797;
+    padding-bottom: 0.75em;
+}
+
+.tweet-content {
+    padding-top: .5em;
+}
+
+blockquote .tweet-comment {
+    font-size: .65em;
+}
+
+blockquote .tweet-comment-author {
+    font-size: 0.65em;
+    margin-bottom: 0;
+}
+
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+.login-screen {
+    margin-bottom: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.alert ul {
+    margin-bottom: 0;
+}
