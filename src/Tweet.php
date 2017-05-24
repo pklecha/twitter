@@ -152,16 +152,16 @@ class Tweet
 
             foreach ($tweetsArray as $row) {
                 $tweet = new Tweet();
-                $tweet->setId($row['id']);
-                $tweet->setText($row['text']);
-                $tweet->setUserId($row['user_id']);
-                $tweet->setCreationDate($row['creation_date']);
+                $tweet->id = $row['id'];
+                $tweet->text = $row['text'];
+                $tweet->userId = $row['user_id'];
+                $tweet->creationDate = $row['creation_date'];
 
                 $allTweets[] = $tweet;
             }
+            return $allTweets;
         }
-
-        return $allTweets;
+        return null;
     }
 
 }

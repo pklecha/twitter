@@ -1,7 +1,9 @@
 <?php
+
 session_start();
 
-if(isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
     unset($_SESSION['user']);
-    header("Location: index.php");
 }
+
+header('Location: login-register.php');

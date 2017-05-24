@@ -31,7 +31,7 @@ class User {
 
     function setPassword($password) 
     {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
     }
     
     function getPassword() 
@@ -103,7 +103,7 @@ class User {
         $sql = "SELECT * FROM twitter.user WHERE username=\"$username\"";
         $result = $conn->query($sql);
         
-        if(!$result) {
+        if($result == false) {
             die ("Query error: " . $conn->errno . ", " . $conn->error);
         }
         
@@ -129,7 +129,7 @@ class User {
         $result = $conn->query($sql);
 
         if(!$result) {
-            die ("Querry error: " . $conn->connect_errno . ", " . $conn->error);
+            echo "Querry error: " . $conn->connect_errno . ", " . $conn->error;
         }
 
         if ($result->num_rows === 1) {
