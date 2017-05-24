@@ -122,6 +122,32 @@ class User {
         }
     }
 
+    static public function loadUserByEmail(mysqli $conn, $email)
+    {
+        $username = $conn->real_escape_string($email);
+        $sql = "SELECT * FROM twitter.user WHERE email=\"$email\"";
+        $result = $conn->query($sql);
+
+        if($result == false) {
+            die ("Query error: " . $conn->errno . ", " . $conn->error);
+        }
+
+        if ($result->num_rows === 1) {
+            $userArray = $result->fetch_assoc();
+            $user = new User();
+
+            $user->setID($userArray['id']);
+            $user->setEmail($userArray['email']);
+            $user->setUsername($userArray['username']);
+            $user->setHash($userArray['password']);
+
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
+
     static public function loadUserById(mysqli $conn, $id)
     {
         $id = $conn->real_escape_string($id);

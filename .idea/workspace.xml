@@ -5,7 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Comment.php" afterPath="$PROJECT_DIR$/src/Comment.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tweet.php" afterPath="$PROJECT_DIR$/src/Tweet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config.php" afterPath="$PROJECT_DIR$/src/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/User.php" afterPath="$PROJECT_DIR$/src/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/custom.css" afterPath="$PROJECT_DIR$/web/css/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.php" afterPath="$PROJECT_DIR$/web/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/login-register.php" afterPath="$PROJECT_DIR$/web/login-register.php" />
     </list>
@@ -86,10 +87,6 @@
         <option name="myItemId" value="twitter" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="message" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
     </PATH>
     <PATH>
       <PATH_ELEMENT>
@@ -116,41 +113,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="registerForm.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/registerForm.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="2" column="76" lean-forward="false" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/register.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="105" column="27" lean-forward="false" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-400">
-              <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+            <state relative-caret-position="480">
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <folding>
+                <element signature="e#4121#4128#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tweet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Tweet.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+              <folding>
+                <marker date="1495667904540" expanded="true" signature="1447:1535" ph="INSERT INTO twitter.tweet... " />
+                <marker date="1495667904540" expanded="true" signature="1784:1871" ph="UPDATE twitt... " />
+                <marker date="1495667904540" expanded="true" signature="2204:2241" ph="SELECT * FRO... tweet" />
+                <marker date="1495667904540" expanded="true" signature="2846:2898" ph="SELECT * FRO... tweet" />
+                <marker date="1495667904540" expanded="true" signature="3537:3581" ph="SELECT * FRO... tweet" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9455e2f1-884c-4667-af3d-4ff63715f603/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="97" lean-forward="false" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tweet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/tweet.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="102" column="27" lean-forward="false" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
+              <folding>
+                <element signature="e#5056#5063#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -159,23 +176,34 @@
       <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1085">
-              <caret line="123" column="38" lean-forward="false" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
+            <state relative-caret-position="610">
+              <caret line="130" column="86" lean-forward="false" selection-start-line="130" selection-start-column="86" selection-end-line="130" selection-end-column="86" />
               <folding>
-                <marker date="1495662660774" expanded="true" signature="1293:1378" ph="INSERT INTO twitter.comment... " />
-                <marker date="1495662660774" expanded="true" signature="1659:1741" ph="UPDATE twitt... " />
-                <marker date="1495662660774" expanded="true" signature="2172:2209" ph="SELECT * FRO... comment" />
+                <marker date="1495666049710" expanded="true" signature="1611:1718" ph="INSERT INTO twitter.comment... " />
+                <marker date="1495666049710" expanded="true" signature="2021:2123" ph="UPDATE twitt... " />
+                <marker date="1495666049710" expanded="true" signature="2576:2613" ph="SELECT * FRO... comment" />
+                <marker date="1495666049710" expanded="true" signature="2576:2629" ph="SELECT * FRO... comment" />
+                <marker date="1495666049710" expanded="true" signature="2576:2646" ph="SELECT * FRO... comment" />
+                <marker date="1495666049710" expanded="true" signature="2576:2647" ph="SELECT * FRO... comment" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-              <folding />
+            <state relative-caret-position="-210">
+              <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+              <folding>
+                <marker date="1495665051611" expanded="true" signature="1100:1179" ph="INSERT INTO twitter.user... " />
+                <marker date="1495665051611" expanded="true" signature="1469:1547" ph="UPDATE twitt... " />
+                <marker date="1495665051611" expanded="true" signature="1901:1935" ph="DELETE FROM " />
+                <marker date="1495665051611" expanded="true" signature="2321:2376" ph="SELECT * FRO... user" />
+                <marker date="1495665051611" expanded="true" signature="3124:3173" ph="SELECT * FRO... user" />
+                <marker date="1495665051611" expanded="true" signature="3867:3903" ph="SELECT * FRO... user" />
+                <marker date="1495665051611" expanded="true" signature="4552:4578" ph="SELECT * FRO... user" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -183,25 +211,24 @@
       <file leaf-file-name="login-register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login-register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="49" column="70" lean-forward="false" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
+            <state relative-caret-position="391">
+              <caret line="95" column="70" lean-forward="true" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="113" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tweet.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tweet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="785">
-              <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="169" selection-end-column="20" />
-              <folding>
-                <marker date="1495661924053" expanded="true" signature="1457:1545" ph="INSERT INTO twitter.tweet... " />
-                <marker date="1495661924053" expanded="true" signature="1820:1907" ph="UPDATE twitt... " />
-                <marker date="1495661924053" expanded="true" signature="2236:2273" ph="SELECT * FRO... tweet" />
-                <marker date="1495661924053" expanded="true" signature="2878:2930" ph="SELECT * FRO... tweet" />
-                <marker date="1495661924053" expanded="true" signature="3569:3596" ph="SELECT * FRO... tweet" />
-              </folding>
+      <file leaf-file-name="twitter.user" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/64561b96/9455e2f1-884c-4667-af3d-4ff63715f603/twitter.user">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -217,16 +244,6 @@
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/logout.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -256,16 +273,18 @@
         <option value="$PROJECT_DIR$/web/templates/tweet-details.php" />
         <option value="$PROJECT_DIR$/web/templates/index.php" />
         <option value="$PROJECT_DIR$/web/login.php" />
-        <option value="$PROJECT_DIR$/src/User.php" />
-        <option value="$PROJECT_DIR$/web/css/custom.css" />
         <option value="$PROJECT_DIR$/web/register.php" />
         <option value="$PROJECT_DIR$/web/logout.php" />
         <option value="$PROJECT_DIR$/web/temp.php" />
         <option value="$PROJECT_DIR$/src/config.php" />
+        <option value="$PROJECT_DIR$/src/User.php" />
         <option value="$PROJECT_DIR$/web/login-register.php" />
-        <option value="$PROJECT_DIR$/src/Tweet.php" />
         <option value="$PROJECT_DIR$/src/Comment.php" />
+        <option value="$PROJECT_DIR$/web/css/custom.css" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9455e2f1-884c-4667-af3d-4ff63715f603/console.sql" />
+        <option value="$PROJECT_DIR$/src/Tweet.php" />
         <option value="$PROJECT_DIR$/web/index.php" />
+        <option value="$PROJECT_DIR$/web/tweet.php" />
       </list>
     </option>
   </component>
@@ -368,6 +387,42 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="_old" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -416,6 +471,9 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web" />
       <recent name="$PROJECT_DIR$/web/_old" />
@@ -545,11 +603,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495660755109</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1495662786817</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495662786817</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47606000" />
+    <option name="totallyTimeSpent" value="52666000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -564,11 +629,12 @@
     <frame x="65" y="24" width="2474" height="1416" extended-state="4" />
     <editor active="true" />
     <layout>
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17998353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" x="165" y="124" width="2274" height="1216" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25123557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25123557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24976657" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -584,7 +650,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987747" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905138" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26984128" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32987747" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -610,30 +675,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/registerForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/_old/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/_old/editAccount.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -670,7 +711,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="864">
           <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
+          <folding>
+            <marker date="1495665051611" expanded="true" signature="1100:1179" ph="INSERT INTO twitter.user... " />
+            <marker date="1495665051611" expanded="true" signature="1469:1547" ph="UPDATE twitt... " />
+            <marker date="1495665051611" expanded="true" signature="1901:1935" ph="DELETE FROM " />
+            <marker date="1495665051611" expanded="true" signature="2321:2376" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3124:3173" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3867:3903" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="4552:4578" ph="SELECT * FRO... user" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,7 +759,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="79" column="45" lean-forward="false" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="45" />
-          <folding />
+          <folding>
+            <marker date="1495665051611" expanded="true" signature="1100:1179" ph="INSERT INTO twitter.user... " />
+            <marker date="1495665051611" expanded="true" signature="1469:1547" ph="UPDATE twitt... " />
+            <marker date="1495665051611" expanded="true" signature="1901:1935" ph="DELETE FROM " />
+            <marker date="1495665051611" expanded="true" signature="2321:2376" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3124:3173" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3867:3903" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="4552:4578" ph="SELECT * FRO... user" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -810,6 +867,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding>
+            <element signature="e#1392#1399#0#HTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -859,25 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="74" column="20" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="105" column="27" lean-forward="false" selection-start-line="105" selection-start-column="27" selection-end-line="105" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -893,18 +938,99 @@
     <entry file="dbDummy://dbtable:/f66f81e6/41f5eff3-01a3-4bc1-aba4-db3a6bab79f3/twitter.user" />
     <entry file="dbDummy://dbtable:/f66f81e6/41f5eff3-01a3-4bc1-aba4-db3a6bab79f3/twitter.tweet" />
     <entry file="file://$PROJECT_DIR$/web/temp.php" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9455e2f1-884c-4667-af3d-4ff63715f603/console.sql">
+    <entry file="file://$PROJECT_DIR$/web/logout.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/64561b96/9455e2f1-884c-4667-af3d-4ff63715f603/twitter.comment">
+      <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/logout.php">
+    <entry file="dbDummy://dbtable:/64561b96/9455e2f1-884c-4667-af3d-4ff63715f603/twitter.user">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="8" column="39" lean-forward="false" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        <state relative-caret-position="-210">
+          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <marker date="1495665051611" expanded="true" signature="1100:1179" ph="INSERT INTO twitter.user... " />
+            <marker date="1495665051611" expanded="true" signature="1469:1547" ph="UPDATE twitt... " />
+            <marker date="1495665051611" expanded="true" signature="1901:1935" ph="DELETE FROM " />
+            <marker date="1495665051611" expanded="true" signature="2321:2376" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3124:3173" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="3867:3903" ph="SELECT * FRO... user" />
+            <marker date="1495665051611" expanded="true" signature="4552:4578" ph="SELECT * FRO... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login-register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="95" column="70" lean-forward="true" selection-start-line="95" selection-start-column="70" selection-end-line="95" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="130" column="86" lean-forward="false" selection-start-line="130" selection-start-column="86" selection-end-line="130" selection-end-column="86" />
+          <folding>
+            <marker date="1495666049710" expanded="true" signature="1611:1718" ph="INSERT INTO twitter.comment... " />
+            <marker date="1495666049710" expanded="true" signature="2021:2123" ph="UPDATE twitt... " />
+            <marker date="1495666049710" expanded="true" signature="2576:2613" ph="SELECT * FRO... comment" />
+            <marker date="1495666049710" expanded="true" signature="2576:2629" ph="SELECT * FRO... comment" />
+            <marker date="1495666049710" expanded="true" signature="2576:2646" ph="SELECT * FRO... comment" />
+            <marker date="1495666049710" expanded="true" signature="2576:2647" ph="SELECT * FRO... comment" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="78" column="24" lean-forward="false" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9455e2f1-884c-4667-af3d-4ff63715f603/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="97" lean-forward="false" selection-start-line="0" selection-start-column="97" selection-end-line="0" selection-end-column="97" />
           <folding />
         </state>
       </provider>
@@ -922,53 +1048,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tweet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="785">
-          <caret line="157" column="8" lean-forward="false" selection-start-line="157" selection-start-column="8" selection-end-line="169" selection-end-column="20" />
+        <state relative-caret-position="185">
+          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
           <folding>
-            <marker date="1495661924053" expanded="true" signature="1457:1545" ph="INSERT INTO twitter.tweet... " />
-            <marker date="1495661924053" expanded="true" signature="1820:1907" ph="UPDATE twitt... " />
-            <marker date="1495661924053" expanded="true" signature="2236:2273" ph="SELECT * FRO... tweet" />
-            <marker date="1495661924053" expanded="true" signature="2878:2930" ph="SELECT * FRO... tweet" />
-            <marker date="1495661924053" expanded="true" signature="3569:3596" ph="SELECT * FRO... tweet" />
+            <marker date="1495667904540" expanded="true" signature="1447:1535" ph="INSERT INTO twitter.tweet... " />
+            <marker date="1495667904540" expanded="true" signature="1784:1871" ph="UPDATE twitt... " />
+            <marker date="1495667904540" expanded="true" signature="2204:2241" ph="SELECT * FRO... tweet" />
+            <marker date="1495667904540" expanded="true" signature="2846:2898" ph="SELECT * FRO... tweet" />
+            <marker date="1495667904540" expanded="true" signature="3537:3581" ph="SELECT * FRO... tweet" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/login-register.php">
+    <entry file="file://$PROJECT_DIR$/web/tweet.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="49" column="70" lean-forward="false" selection-start-line="49" selection-start-column="70" selection-end-line="49" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1085">
-          <caret line="123" column="38" lean-forward="false" selection-start-line="123" selection-start-column="38" selection-end-line="123" selection-end-column="38" />
+        <state relative-caret-position="470">
+          <caret line="102" column="27" lean-forward="false" selection-start-line="102" selection-start-column="27" selection-end-line="102" selection-end-column="27" />
           <folding>
-            <marker date="1495662660774" expanded="true" signature="1293:1378" ph="INSERT INTO twitter.comment... " />
-            <marker date="1495662660774" expanded="true" signature="1659:1741" ph="UPDATE twitt... " />
-            <marker date="1495662660774" expanded="true" signature="2172:2209" ph="SELECT * FRO... comment" />
+            <element signature="e#5056#5063#1#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="480">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#4121#4128#1#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

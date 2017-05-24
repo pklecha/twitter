@@ -85,18 +85,17 @@ class Tweet
         $this->creationDate = $creationDate;
     }
 
-    public function saveToDB(mysqli $conn, User $user)
+    public function saveToDB(mysqli $conn, $userId)
     {
-        if ($this->id == -1 && $user->getId() != -1) {
-            $sql = sprintf("INSERT INTO twitter.tweet (`text`, `user_id`, `creation_date`) VALUES (`%s`, `%d`, `%d`)", $this->getText(), $user->getId(), time());
+        if ($this->id == -1 && $userId != -1) {
+            $sql = sprintf("INSERT INTO twitter.tweet (`text`, `user_id`, `creation_date`) VALUES ('%s', '%d', '%d')", $this->getText(), $userId, time());
             $result = $conn->query($sql);
-            if ($result) {
+            if ($result == true) {
                 $this->id = $conn->insert_id;
-                return true;
             }
-            return false;
+            return $result;
         } else {
-            $sql = sprintf("UPDATE twitter.tweet SET (`text`, `user_id`, `creation_date`) VALUES (`%s`, `%d`, `%d`)", $this->getText(), $this->getId(), time());
+            $sql = sprintf("UPDATE twitter.tweet SET (`text`, `user_id`, `creation_date`) VALUES ('%s', '%d', '%d')", $this->getText(), $this->getUserId(), time());
             $result = $conn->query($sql);
             if ($result) {
                 return true;
@@ -152,7 +151,7 @@ class Tweet
     static public function loadAllTweets(mysqli $conn)
     {
         $allTweets = [];
-        $sql = "SELECT * FROM twitter.tweet";
+        $sql = "SELECT * FROM twitter.tweet ORDER BY id DESC";
         $result = $conn->query($sql);
 
         if ($result && $result->num_rows > 0) {

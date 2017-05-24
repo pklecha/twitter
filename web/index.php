@@ -7,11 +7,30 @@ require_once '../src/User.php';
 require_once '../src/Tweet.php';
 require_once '../src/Comment.php';
 
+$errorMessage = "";
+
 if (isset($_SESSION['user'])) {
     $user = User::loadUserById($conn, $_SESSION['user']);
     $username = $user->getUsername();
 } else {
     header('Location: login-register.php');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addTweet'])) {
+    $text = $conn->real_escape_string($_POST['addTweetText']);
+    if (empty($text)) {
+        $errorMessage .= "Your tweet cannot be empty";
+    } elseif (strlen($text) > 140) {
+        $errorMessage .= "A tweet cannot exceed 140 characters";
+    } else {
+        $newTweet = new Tweet();
+
+        $newTweet->setText($text);
+        $newTweet->setUserId($user->getId());
+        $newTweet->setCreationDate(time());
+
+        $test = $newTweet->saveToDB($conn, $user->getId());
+    }
 }
 
 ?>
@@ -35,6 +54,9 @@ if (isset($_SESSION['user'])) {
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#addTweet">+ Add tweet</button>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link top-nav" href="">Messages</a>
                 </li>
                 <li class="nav-item">
@@ -51,6 +73,9 @@ if (isset($_SESSION['user'])) {
 <div class="container tweets-list">
     <div class="row">
         <div class="col-md-6 offset-md-3">
+            <div class="alert alert-danger<?php if(empty($errorMessage)) { echo ' hidden'; } ?>">
+                <?php echo $errorMessage ?>
+            </div>
             <?php
             $allTweets = Tweet::loadAllTweets($conn);
             foreach ($allTweets as $tweet):
@@ -68,6 +93,32 @@ if (isset($_SESSION['user'])) {
                 </a>
             </div>
             <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+
+<!-- Add New Tweet Modal -->
+<div class="modal fade" id="addTweet" tabindex="-1" role="dialog" aria-labelledby="addNewTweetModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new tweet</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="index.php" method="post" id="addTweetForm">
+                    <div class="form-group">
+                        <textarea name="addTweetText" id="addTweetText" cols="30" rows="2" placeholder="Enter your tweet" class="form-control"></textarea>
+                        <small>140 characters max</small>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" form="addTweetForm" name="addTweet" class="btn btn-primary">Add tweet</button>
+            </div>
         </div>
     </div>
 </div>

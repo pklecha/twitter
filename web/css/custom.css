@@ -74,3 +74,7 @@ blockquote .tweet-comment-author {
 .alert ul {
     margin-bottom: 0;
 }
+
+.nav-item button {
+    margin-right: .75rem;
+}

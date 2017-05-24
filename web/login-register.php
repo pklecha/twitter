@@ -48,6 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errorMessage .= "<li>Please provide the same password twice</li>";
         } elseif (!filter_var(filter_var($email, FILTER_SANITIZE_EMAIL), FILTER_VALIDATE_EMAIL)) {
             $errorMessage .= "<li>Please provide correct email address</li>";
+        } elseif (User::loadUserByUsername($conn, $username) != false) {
+            $errorMessage .= "<li>Provided username already taken</li>";
+        } elseif (User::loadUserByEmail($conn, $email) != false) {
+            $errorMessage .= "<li>Provided email address already taken</li>";
         } else {
             $user = new User();
             $user->setUsername($username);
