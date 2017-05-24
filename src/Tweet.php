@@ -24,7 +24,7 @@ class Tweet
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -32,7 +32,7 @@ class Tweet
     /**
      * @return string
      */
-    public function getUserId(): string
+    public function getUserId()
     {
         return $this->userId;
     }
@@ -40,7 +40,7 @@ class Tweet
     /**
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }
@@ -48,15 +48,23 @@ class Tweet
     /**
      * @return string
      */
-    public function getCreationDate(): string
+    public function getCreationDate()
     {
         return $this->creationDate;
     }
 
     /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @param string $userId
      */
-    public function setUserId(string $userId)
+    public function setUserId($userId)
     {
         $this->userId = $userId;
     }
@@ -64,7 +72,7 @@ class Tweet
     /**
      * @param string $text
      */
-    public function setText(string $text)
+    public function setText($text)
     {
         $this->text = $text;
     }
@@ -72,7 +80,7 @@ class Tweet
     /**
      * @param string $creationDate
      */
-    public function setCreationDate(string $creationDate)
+    public function setCreationDate($creationDate)
     {
         $this->creationDate = $creationDate;
     }
@@ -148,14 +156,12 @@ class Tweet
         $result = $conn->query($sql);
 
         if ($result && $result->num_rows > 0) {
-            $tweetsArray = $result->fetch_assoc();
-
-            foreach ($tweetsArray as $row) {
+            while ($row = $result->fetch_assoc()) {
                 $tweet = new Tweet();
-                $tweet->id = $row['id'];
-                $tweet->text = $row['text'];
-                $tweet->userId = $row['user_id'];
-                $tweet->creationDate = $row['creation_date'];
+                $tweet->setId($row['id']);
+                $tweet->setText($row['text']);
+                $tweet->setUserId($row['user_id']);
+                $tweet->setCreationDate($row['creation_date']);
 
                 $allTweets[] = $tweet;
             }

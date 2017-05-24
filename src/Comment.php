@@ -108,7 +108,24 @@ class Comment
     
     static public function loadCommentsbyTweet(mysqli $conn, $tweetId)
     {
-        
+        $comments = [];
+        $sql = "SELECT * FROM comment WHERE tweet_id=" . $tweetId;
+
+        $result = $conn->query($sql);
+
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $comment = new Comment();
+                $comment->id = $row['id'];
+                $comment->comment = $row['comment'];
+                $comment->tweetId = $row['tweet_id'];
+                $comment->userId = $row['user_id'];
+
+                $comments[] = $comment;
+            }
+            return $comments;
+        }
+        return null;
     }
 
     static public function loadCommentsByUser(mysqli $conn, $userId)

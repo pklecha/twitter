@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = User::loadUserByUsername($conn, $username);
 
         if (empty($username) || empty($password)) {
-            $errorMessage = "<li>Należy podać nazwę użytkownika i hasło</li>";
+            $errorMessage = "<li>Plese provide username and password</li>";
         } elseif (!$user) {
-            $errorMessage .= "<li>Nie rozpoznano użytkownika lub hasła</li>";
+            $errorMessage .= "<li>Username and/or password not recognized</li>";
         } else {
             if (password_verify($password, $user->getPassword())) {
                 $_SESSION['user'] = $user->getId();
                 header("Location: index.php");
             } else {
-                $errorMessage .= "<li>Nie rozpoznano użytkownika lub hasła</li>";
+                $errorMessage .= "<li>Username and/or password not recognized</li>";
             }
         }
 
@@ -43,11 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pass2 = $_POST['registerPasswordTwo'];
 
         if (empty($username) || empty($email) || empty($pass1) || empty($pass2)) {
-            $errorMessage .= "<li>Należy wypełnić wszystkie pola</li>";
+            $errorMessage .= "<li>Please fill in all fields</li>";
         } elseif ($pass1 != $pass2) {
-            $errorMessage .= "<li>Należy podać dwa razy to samo hasło</li>";
+            $errorMessage .= "<li>Please provide the same password twice</li>";
         } elseif (!filter_var(filter_var($email, FILTER_SANITIZE_EMAIL), FILTER_VALIDATE_EMAIL)) {
-            $errorMessage .= "<li>Należy podać prawidłowy adres email</li>";
+            $errorMessage .= "<li>Please provide correct email address</li>";
         } else {
             $user = new User();
             $user->setUsername($username);

@@ -5,6 +5,7 @@ session_start();
 require_once '../src/connection.php';
 require_once '../src/User.php';
 require_once '../src/Tweet.php';
+require_once '../src/Comment.php';
 
 if (isset($_SESSION['user'])) {
     $user = User::loadUserById($conn, $_SESSION['user']);
@@ -52,56 +53,21 @@ if (isset($_SESSION['user'])) {
         <div class="col-md-6 offset-md-3">
             <?php
             $allTweets = Tweet::loadAllTweets($conn);
-            echo "<pre>";
-            var_dump($allTweets);
-            echo "</pre>";
-
-            foreach ($allTweets as $item) {
-                echo $item;
-            }
+            foreach ($allTweets as $tweet):
             ?>
             <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
+                <a href="tweet.php?id=<?php echo $tweet->getId() ?>">
+                    <?php
+                        $author = User::loadUserById($conn, $tweet->getUserId());
+                        $date = date("F j, Y", $tweet->getCreationDate());
+                        $commentsQuantity = count(Comment::loadCommentsbyTweet($conn, $tweet->getId()));
+                    ?>
+                    <p class="tweet-details"><strong><?php echo $date ?></strong> by <strong><?php echo $author->getUsername() ?></strong></p>
+                    <p class="tweet-content"><?php echo $tweet->getText() ?></p>
+                    <p class="tweet-comments"><strong><?php echo $commentsQuantity ?> comments</strong></p>
                 </a>
             </div>
-            <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
-                </a>
-            </div>
-            <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
-                </a>
-            </div>
-            <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
-                </a>
-            </div>
-            <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
-                </a>
-            </div>
-            <div class="tweet">
-                <a href="">
-                    <p class="tweet-details"><strong>22 May 2017</strong> by <strong>pklecha</strong></p>
-                    <p class="tweet-content">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, turpis.</p>
-                    <p class="tweet-comments"><strong>2 comments</strong></p>
-                </a>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
