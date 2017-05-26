@@ -14,7 +14,7 @@
 <nav class="navbar fixed-top navbar-light light-blue-bckg">
     <div class="container">
         <nav class="navbar navbar-toggleable-md">
-            <a class="navbar-brand" href="#">Welcome, <strong><?php echo $username ?></strong></a>
+            <a class="navbar-brand" href="index.php">Welcome, <strong><?php echo $user->getUsername() ?></strong></a>
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item">

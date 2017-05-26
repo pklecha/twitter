@@ -146,7 +146,21 @@ class Message
 
     static public function loadMessageById(mysqli $conn, $id)
     {
+        $sql = "SELECT * FROM message WHERE id=" . $id;
+        $result = $conn->query($sql);
 
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $message = new Message();
+            $message->id = $row['id'];
+            $message->message = $row['message'];
+            $message->isRead = $row['is_read'];
+            $message->senderId = $row['sender_id'];
+            $message->recipientId = $row['recipient_id'];
+            $message->creation_date = $row['creation_date'];
+
+            return $message;
+        }
     }
 
     static public function loadSentMessagesByUser(mysqli $conn, $senderId)
@@ -164,6 +178,7 @@ class Message
                 $message->senderId = $row['sender_id'];
                 $message->recipientId = $row['recipient_id'];
                 $message->creation_date = $row['creation_date'];
+                $message->isRead = $row['is_read'];
 
                 $messages[] = $message;
             }
@@ -188,6 +203,7 @@ class Message
                 $message->senderId = $row['sender_id'];
                 $message->recipientId = $row['recipient_id'];
                 $message->creation_date = $row['creation_date'];
+                $message->isRead = $row['is_read'];
 
                 $messages[] = $message;
             }

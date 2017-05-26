@@ -128,24 +128,24 @@ class Tweet
         $allTweets = [];
 
         $userId = $conn->real_escape_string($userId);
-        $sql = "SELECT * FROM twitter.tweet WHERE twitter.user_id = $userId";
+        $sql = "SELECT * FROM tweet WHERE user_id=". $userId;
         $result = $conn->query($sql);
 
         if ($result && $result->num_rows > 0) {
-            $tweetsArray = $result->fetch_assoc();
-
-            foreach ($tweetsArray as $row) {
+            while ($row = $result->fetch_assoc()) {
                 $tweet = new Tweet();
-                $tweet->setId($row['id']);
-                $tweet->setText($row['text']);
-                $tweet->setUserId($row['user_id']);
-                $tweet->setCreationDate($row['creation_date']);
+                $tweet->id = $row['id'];
+                $tweet->text = $row['text'];
+                $tweet->userId = $row['user_id'];
+                $tweet->creationDate = $row['creation_date'];
 
                 $allTweets[] = $tweet;
             }
+            return $allTweets;
         }
 
-        return $allTweets;
+        return null;
+
     }
 
     static public function loadAllTweets(mysqli $conn)
