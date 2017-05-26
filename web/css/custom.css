@@ -11,7 +11,7 @@ a.top-nav {
     color: #0275D8 !important;
 }
 
-.tweets-list {
+.main-content {
     margin-top: 6em;
 }
 
@@ -24,9 +24,9 @@ a.top-nav {
     background-color: #F3F6FB;
 }
 
-.tweet a {
-    color: #1d1e1f;
-}
+/*.tweet a {*/
+    /*color: #1d1e1f;*/
+/*}*/
 
 .tweet a:hover {
     text-decoration: none;

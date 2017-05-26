@@ -13,6 +13,7 @@ class Message
     private $recipientId;
     private $message;
     private $isRead;
+    private $creation_date;
 
     public function __construct()
     {
@@ -95,6 +96,24 @@ class Message
         $this->isRead = $isRead;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCreationDate()
+    {
+        return $this->creation_date;
+    }
+
+    /**
+     * @param mixed $creation_date
+     */
+    public function setCreationDate($creation_date)
+    {
+        $this->creation_date = $creation_date;
+    }
+
+
+
     public function saveToDB(mysqli $conn)
     {
         if ($this->isRead) {
@@ -105,7 +124,7 @@ class Message
 
         if (-1 === $this->id) {
 
-            $sql = sprintf("INSERT INTO twitter.message (`message`, `sender_id`, `recipient_id`, `is_read`) VALUES('%s','%d','%d', '%d')", $this->message, $this->senderId, $this->recipientId, $isRead);
+            $sql = sprintf("INSERT INTO twitter.message (`message`, `sender_id`, `recipient_id`, `is_read`, `creation_date`) VALUES('%s','%d','%d', '%d', '%d')", $this->message, $this->senderId, $this->recipientId, $isRead, $this->creation_date);
 
             $result = $conn->query($sql);
 
@@ -115,7 +134,7 @@ class Message
             }
             return false;
         } else {
-            $sql = sprintf("UPDATE twitter.message SET message='%s', sender_id='%d', recipient_id='%d', is_read='%d' WHERE id='%d'", $this->message, $this->senderId, $this->recipientId, $this->id, $isRead);
+            $sql = sprintf("UPDATE twitter.message SET message='%s', sender_id='%d', recipient_id='%d', is_read='%d', creation_date='%d' WHERE id='%d'", $this->message, $this->senderId, $this->recipientId, $isRead, $this->creation_date, $this->id);
             $result = $conn->query($sql);
 
             if ($result) {
@@ -130,13 +149,51 @@ class Message
 
     }
 
-    static public function loadAllMessagesByUser(mysqli $conn, $userId)
+    static public function loadSentMessagesByUser(mysqli $conn, $senderId)
     {
+        $messages = [];
+        $senderId = $conn->real_escape_string($senderId);
+        $sql = "SELECT * FROM message WHERE sender_id=" . $senderId . " ORDER BY id DESC";
+        $result = $conn->query($sql);
 
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $message = new Message();
+                $message->id = $row['id'];
+                $message->message = $row['message'];
+                $message->senderId = $row['sender_id'];
+                $message->recipientId = $row['recipient_id'];
+                $message->creation_date = $row['creation_date'];
+
+                $messages[] = $message;
+            }
+
+            return $messages;
+        }
+        return null;
     }
 
     static public function loadReceivedMessagesByUser(mysqli $conn, $recipientId)
     {
+        $messages = [];
+        $senderId = $conn->real_escape_string($recipientId);
+        $sql = "SELECT * FROM message WHERE recipient_id=" . $recipientId . " ORDER BY id DESC";
+        $result = $conn->query($sql);
 
+        if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $message = new Message();
+                $message->id = $row['id'];
+                $message->message = $row['message'];
+                $message->senderId = $row['sender_id'];
+                $message->recipientId = $row['recipient_id'];
+                $message->creation_date = $row['creation_date'];
+
+                $messages[] = $message;
+            }
+
+            return $messages;
+        }
+        return null;
     }
 }
