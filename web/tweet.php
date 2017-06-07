@@ -62,7 +62,10 @@ require_once 'templates/header.php';
             <?php if (count($comments)>0):?>
             <?php foreach ($comments as $comment): ?>
             <blockquote class="blockquote">
-                <p class="tweet-comment-author"><strong><?php echo date("F j, Y", $comment->getCreationDate()); ?></strong> by <strong><a href="profile.php?id=<?php echo $author->getId() ?>"><?php echo $author->getUsername() ?></a></strong></p>
+                <?php
+                $commentAuthor = User::loadUserById($conn, $comment->getUserId());
+                ?>
+                <p class="tweet-comment-author"><strong><?php echo date("F j, Y", $comment->getCreationDate()); ?></strong> by <strong><a href="profile.php?id=<?php echo $comment->getUserId() ?>"><?php echo $commentAuthor->getUsername() ?></a></strong></p>
                 <p class="mb-0 tweet-comment"><?php echo $comment->getComment() ?></p>
             </blockquote>
             <?php endforeach; ?>

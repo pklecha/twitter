@@ -6,6 +6,7 @@ require_once '../src/connection.php';
 require_once '../src/User.php';
 require_once '../src/Tweet.php';
 require_once '../src/Comment.php';
+require_once '../src/Message.php';
 
 $errorMessage = "";
 
@@ -25,14 +26,14 @@ if (isset($_SESSION['user'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['messageAdd'])) {
 
     if(empty($_POST['messageText'])) {
-        $errorMessage .= "<li>Your reply cannot be empty</li>";
+        $errorMessage .= "<li>Your message cannot be empty</li>";
     } elseif (strlen(trim($_POST['messageText'])) > 60) {
         $errorMessage .= "<li>Your message cannot be longer than 60 characters</li>";
     } else {
         $newMessage = new Message();
         $newMessage->setMessage($conn->real_escape_string($_POST['messageText']));
         $newMessage->setSenderId($_SESSION['user']);
-        $newMessage->setRecipientId($message->getSenderId());
+        $newMessage->setRecipientId($profile->getId());
         $newMessage->setCreationDate(time());
 
         $sendReply = $newMessage->saveToDB($conn);
@@ -62,7 +63,7 @@ require_once 'templates/header.php';
                     <?php echo $errorMessage ?>
                 </div>
                 <div class="alert alert-success mb-3 login-screen <?php if(!isset($success)) {echo 'hidden';} ?>">
-                    Your reply has been sent
+                    Your message has been sent
                 </div>
                 <div class="form-group">
                     <textarea name="messageText" id="messageText" cols="30" rows="2" placeholder="Enter message" class="form-control"></textarea>

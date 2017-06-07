@@ -42,6 +42,7 @@ require_once 'templates/header.php';
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane active" id="received" role="tabpanel">
+                    <?php if (!empty($receivedMessages)) : ?>
                     <?php foreach ($receivedMessages as $receivedMessage):
                         $sender = User::loadUserById($conn, $receivedMessage->getSenderId());
                         $date = date("F j, Y", $receivedMessage->getCreationDate())
@@ -51,8 +52,12 @@ require_once 'templates/header.php';
                         <p class="tweet-content"><a href="message.php?id=<?php echo $receivedMessage->getId() ?>"><?php echo $receivedMessage->getMessage() ?></a></p>
                     </div>
                     <?php endforeach; ?>
+                    <?php else: ?>
+                    <p>No received messages</p>
+                    <?php endif; ?>
                 </div>
                 <div class="tab-pane" id="sent" role="tabpanel">
+                    <?php if (!empty($sentMessages)): ?>
                     <?php foreach ($sentMessages as $sentMessage):
                         $recipient = User::loadUserById($conn, $sentMessage->getRecipientId());
                         $date = date("F j, Y", $sentMessage->getCreationDate())
@@ -62,6 +67,9 @@ require_once 'templates/header.php';
                             <p class="tweet-content"><a href="message.php?id=<?php echo $sentMessage->getId() ?>"><?php echo $sentMessage->getMessage() ?></a></p>
                         </div>
                     <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>No sent messages</p>
+                    <?php endif; ?>
                 </div>
             </div>
 
